@@ -1,26 +1,43 @@
 package main
 
-import "fmt"
+// import "fmt"
+import "log"
 
 func main() {
-	fmt.Println("Hello, World!")
+	// fmt.Println("Hello, World!")
 
-	var whatToSay string
-	var i int
+	// var whatToSay string
+	// var i int
 
-	whatToSay = "Goodbye, cruel world"
+	// whatToSay = "Goodbye, cruel world"
 
-	fmt.Println(whatToSay)
+	// fmt.Println(whatToSay)
 
-	i = 7
+	// i = 7
 
-	fmt.Println("i is set to", i)
+	// fmt.Println("i is set to", i)
 
-	whatWasSaid, theOtherThingThatWasSaid := saySometring()
+	// whatWasSaid, theOtherThingThatWasSaid := saySometring()
 
-	fmt.Println("The function returned", whatWasSaid, theOtherThingThatWasSaid)
+	// fmt.Println("The function returned", whatWasSaid, theOtherThingThatWasSaid)
+
+	var myString string
+	myString = "Green"
+
+	log.Println("before func call myString is set to", myString)
+
+	changeUsingPointer(&myString) // pass the address of the variable instead of the variable
+
+	log.Println("after func call myString is set to", myString)
+
 }
 
-func saySometring() (string, string) {
-	return "sometring", "else"
+// func saySometring() (string, string) {
+// 	return "sometring", "else"
+// }
+
+func changeUsingPointer(s *string) {
+	log.Println("s is set to", s) // the content of the s variable is an address to myString variable
+	newValue := "Red"
+	*s = newValue
 }
