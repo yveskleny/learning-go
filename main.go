@@ -1,43 +1,43 @@
 package main
 
-// import "fmt"
-import "log"
+import (
+	"log"
+	"time"
+)
+
+// var s = "seven"
+
+// to make a function or a variable puclic available outside of the package use Capital letter
+
+type User struct {
+	FirstName   string
+	LastName    string
+	PhoneNumber string
+	Age         int
+	BirthDate   time.Time
+}
 
 func main() {
-	// fmt.Println("Hello, World!")
+	// var s2 = "six"
 
-	// var whatToSay string
-	// var i int
+	// s := "eight" // local variables have priority over global declarations
 
-	// whatToSay = "Goodbye, cruel world"
+	// log.Println("s is", s)
+	// log.Println("s2 is", s2)
 
-	// fmt.Println(whatToSay)
+	// saySometring("xxx")
 
-	// i = 7
+	user := User{
+		FirstName:   "Yves",
+		LastName:    "Martins",
+		PhoneNumber: "(11)91111-1111",
+	}
 
-	// fmt.Println("i is set to", i)
-
-	// whatWasSaid, theOtherThingThatWasSaid := saySometring()
-
-	// fmt.Println("The function returned", whatWasSaid, theOtherThingThatWasSaid)
-
-	var myString string
-	myString = "Green"
-
-	log.Println("before func call myString is set to", myString)
-
-	changeUsingPointer(&myString) // pass the address of the variable instead of the variable
-
-	log.Println("after func call myString is set to", myString)
+	log.Println(user.FirstName, user.LastName, "Birthdate:", user.BirthDate)
 
 }
 
-// func saySometring() (string, string) {
-// 	return "sometring", "else"
+// func saySometring(s3 string) (string, string) {
+// 	log.Println("s from the saySometring func is", s)
+// 	return s3, "World"
 // }
-
-func changeUsingPointer(s *string) {
-	log.Println("s is set to", s) // the content of the s variable is an address to myString variable
-	newValue := "Red"
-	*s = newValue
-}
