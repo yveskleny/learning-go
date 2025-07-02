@@ -1,43 +1,24 @@
 package main
 
-import (
-	"log"
-	"time"
-)
+import "log"
 
-// var s = "seven"
+type myStruct struct {
+	FirstName string
+}
 
-// to make a function or a variable puclic available outside of the package use Capital letter
-
-type User struct {
-	FirstName   string
-	LastName    string
-	PhoneNumber string
-	Age         int
-	BirthDate   time.Time
+func (m *myStruct) printFirstName() string { // This is called a receiver and it ties a function to a struct
+	return m.FirstName
 }
 
 func main() {
-	// var s2 = "six"
+	var myVar myStruct
+	myVar.FirstName = "John"
 
-	// s := "eight" // local variables have priority over global declarations
-
-	// log.Println("s is", s)
-	// log.Println("s2 is", s2)
-
-	// saySometring("xxx")
-
-	user := User{
-		FirstName:   "Yves",
-		LastName:    "Martins",
-		PhoneNumber: "(11)91111-1111",
+	myVar2 := myStruct{
+		FirstName: "Mary",
 	}
 
-	log.Println(user.FirstName, user.LastName, "Birthdate:", user.BirthDate)
+	log.Println("myVar is set to", myVar.printFirstName())
+	log.Println("myVar2 is set to", myVar2.printFirstName())
 
 }
-
-// func saySometring(s3 string) (string, string) {
-// 	log.Println("s from the saySometring func is", s)
-// 	return s3, "World"
-// }
